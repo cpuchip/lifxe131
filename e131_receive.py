@@ -9,12 +9,12 @@ from lifxlan import LifxLAN
 
 lightIdx = (0,3,3) # start stop step for incramenting through all your channels in DMX data
 
-max_bright = 65535
 max_bit = 65535
 max_rgb = 255
 
-numb_lights = 2
-UNIVERSE = 1
+numb_lights = 2 # How many lights you have on your network so the automated light discovery knows when it's found them all
+UNIVERSE = 1 # Which dmx universe it should be listening on
+max_bright = 65535 # This value will change what's concidered max brightness. minimum is 1 maximum is 65535
 
 # test power control
 print("Discovering lights...")
