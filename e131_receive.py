@@ -42,7 +42,10 @@ for i, l in enumerate(lights):
 
 print("Running e1.31 Lifx reciever")
 # provide an IP-Address to bind to if you are using Windows and want to use multicast
-receiver = sacn.sACNreceiver()
+if len(sys.argv) > 1:
+    receiver = sacn.sACNreceiver(sys.argv[1])
+else:
+    receiver = sacn.sACNreceiver()
 receiver.start()  # start the receiving thread
 
 # define a callback function
