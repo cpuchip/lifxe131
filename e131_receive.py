@@ -57,7 +57,7 @@ def callback(packet):  # packet type: sacn.DataPacket
 		start, end = dmx_channels(idx)
 		rgb = packet.dmxData[start:end]
 		hsb = [int(x * scale_up) for x in colorsys.rgb_to_hsv(*[c / max_rgb for c in rgb])]
-		hsb[2] = hsb[2] * max_bright # Adjust the brightness
+		hsb[2] = round(hsb[2] * max_bright) # Adjust the brightness
 		color = tuple(hsb) + (3500,) # Add kelvin
 		print(f"{light.label:20} set to {color} from RGB{rgb}")
 		light.set_color(color, 0, True)
